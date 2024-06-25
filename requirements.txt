@@ -1,0 +1,9 @@
+Django==3.1.3
+django-cors-headers==3.5.0
+djangorestframework==3.11.2
+django-log-request-id
+
+tensorflow-cpu
+transformers==4.0
+gunicorn==19.9.0
+sentencepiece==0.1.91

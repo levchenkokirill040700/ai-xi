@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    build: 
+      context: .
+    # env_file:
+    #   - .env
+    command: gunicorn -w 6 apis.wsgi -b 0.0.0.0:80 --timeout 300
+    volumes:
+      - /data2/:/data2/
+      - ./src/logs/:/app/logs/
+    environment:
+        - MAX_LENGTH_LIMIT=8
+        - NUM_SUGGEST_LIMIT=3
+        - MODEL_PATH=/data2/novels/finetune/models/
+    #   - DEBUG=TRUE
+    ports:
+      - 7890:80
+    restart: always
